@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="resource/commons-codec-1.11-tests.jar"/>
+	<classpathentry kind="lib" path="resource/commons-codec-1.11.jar"/>
+	<classpathentry kind="lib" path="resource/jackson-mapper-asl-1.9.13.jar"/>
+	<classpathentry kind="lib" path="resource/httpclient-4.5.6.jar"/>
+	<classpathentry kind="lib" path="resource/httpcore-4.4.10.jar"/>
+	<classpathentry kind="lib" path="resource/json.jar"/>
+	<classpathentry kind="lib" path="resource/httpclient-cache-4.5.6.jar"/>
+	<classpathentry kind="lib" path="resource/httpclient-win-4.5.6.jar"/>
+	<classpathentry kind="lib" path="resource/jna-platform-4.4.0.jar"/>
+	<classpathentry kind="lib" path="resource/jna-4.4.0.jar"/>
+	<classpathentry kind="lib" path="resource/httpmime-4.5.6.jar"/>
+	<classpathentry kind="lib" path="resource/fluent-hc-4.5.6.jar"/>
+	<classpathentry kind="lib" path="resource/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="resource/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="resource/aip-java-sdk-4.8.0.jar"/>
+	<classpathentry kind="lib" path="resource/json-20160810.jar"/>
+	<classpathentry kind="lib" path="resource/log4j-1.2.17.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
