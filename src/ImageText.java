@@ -29,30 +29,31 @@ import com.baidu.aip.ocr.AipOcr;
 
 public class ImageText {
 	
-	//ÉèÖÃAPPID/AK/SK
+	//è®¾ç½®APPID/AK/SK
 	public static final String APP_ID = "14719626";
 	public static final String API_KEY = "QLbkEKz8RWx7YQ5aNetdMEM4";
 	public static final String SECRET_KEY = "lpaKxBBqtOObO4Z3uzKFhj1nxAQI0FZ8";
 
 	public static void main(String[] args) throws Exception {
 		
-		//test();
-		ocr();
+		test();
+		//ocr();
+		//å“ˆå“ˆå“ˆï¼Œpullä¸€ä¸‹
 
 	}
 	
 	public static void test() throws Exception{
-		String imgFile = "c:\\facts\\Î¢ĞÅÍ¼Æ¬_20190118111629.jpg";// ´ı´¦ÀíµÄÍ¼Æ¬
+		String imgFile = "c:\\facts\\å¾®ä¿¡å›¾ç‰‡_20190118111629.jpg";// å¾…å¤„ç†çš„å›¾ç‰‡
 		String imgbese = getImgStr(imgFile);
-		BufferedImage bufImage = ImageIO.read(new File(imgFile));
+		//BufferedImage bufImage = ImageIO.read(new File(imgFile));
 		//System.out.println(imgbese.length());
 		//writeFile("c:\\facts\\images\\IMG_20181202_133842.txt",imgbese);
-		//String response = framedetection(imgbese);
-		//System.out.println(response);
+		String response = framedetection(imgbese);
+		System.out.println(response);
 		//{"location":{"height":752,"left":1377,"top":2970,"width":980},"name":"ntr_frame","score":0.9931187629699707},
 		//		{"location":{"height":1525,"left":153,"top":2232,"width":2632},"name":"txt_frame","score":0.9165641665458679}
-		//´Ó·µ»ØĞÅÏ¢ÖĞÕÒµ½"left","top","width","height"ĞÅÏ¢Ìîµ½ÏÂÃæµÄº¯ÊıÖĞ
-		ImageIO.write(bufImage.getSubimage(1377, 2970, 980, 752), "JPEG", new File(imgFile.replace(".jp", "sub.jp"))) ;
+		//ä»è¿”å›ä¿¡æ¯ä¸­æ‰¾åˆ°"left","top","width","height"ä¿¡æ¯å¡«åˆ°ä¸‹é¢çš„å‡½æ•°ä¸­
+		//ImageIO.write(bufImage.getSubimage(1377, 2970, 980, 752), "JPEG", new File(imgFile.replace(".jp", "sub.jp"))) ;
 		//generateImage(imgbese,"c:\\facts\\generated\\IMG_20181202_133842.jpg");
 	}
 	
@@ -62,14 +63,14 @@ public class ImageText {
         String SECRET_KEY = "16KnnaSZPAqpAobdnSo8zaybbiMp2MGn";
         AipOcr client = new AipOcr(APP_ID, API_KEY, SECRET_KEY);
         //
-        // ¸ß¾«¶È´øÎ»ÖÃĞÅÏ¢
+        // é«˜ç²¾åº¦å¸¦ä½ç½®ä¿¡æ¯
         HashMap<String, String> options = new HashMap<String, String>();
         options.put("recognize_granularity", "big");
         options.put("detect_direction", "true");
         options.put("vertexes_location", "true");
         options.put("probability", "true");
         
-        String image = "C:\\facts\\Î¢ĞÅÍ¼Æ¬_20190131114826C.jpg";
+        String image = "C:\\facts\\å¾®ä¿¡å›¾ç‰‡_20190131114826C.jpg";
         JSONObject res = client.accurateGeneral(image, options);
         String str = res.toString(2);
         Pattern words = Pattern.compile("\"words\":.*\n");
@@ -80,12 +81,12 @@ public class ImageText {
         System.out.println(res.toString(2));
         //
         
-        /* ¸ß¾«¶È
+        /* é«˜ç²¾åº¦
         HashMap<String, String> options = new HashMap<String, String>();
         options.put("detect_direction", "true");
         options.put("probability", "true");
         
-        String image = "C:\\Users\\songbo\\Desktop\\Ê³Æ·¹æÔò×ÊÁÏ\\NewOCR\\Î¢ĞÅÍ¼Æ¬_20181212151232yyy.jpg";
+        String image = "C:\\Users\\songbo\\Desktop\\é£Ÿå“è§„åˆ™èµ„æ–™\\NewOCR\\å¾®ä¿¡å›¾ç‰‡_20181212151232yyy.jpg";
         JSONObject res = client.basicAccurateGeneral(image, options);
         String str = res.toString(2);
         Pattern words = Pattern.compile("\"words\":.*\n");
@@ -96,14 +97,14 @@ public class ImageText {
         System.out.println(res.toString(2));
         
         /*
-        // µÍ¾«¶È
+        // ä½ç²¾åº¦
         HashMap<String, String> options = new HashMap<String, String>();
         options.put("language_type", "CHN_ENG");
         options.put("detect_direction", "true");
         options.put("detect_language", "true");
         options.put("probability", "true");
         
-        String image = "C:\\Users\\LL\\Desktop\\Ê³Æ·¹æÔò×ÊÁÏ\\NewOCR\\zhh\\ĞÂÎÄµµ 2018-12-02 09.42.48_1.jpg";
+        String image = "C:\\Users\\LL\\Desktop\\é£Ÿå“è§„åˆ™èµ„æ–™\\NewOCR\\zhh\\æ–°æ–‡æ¡£ 2018-12-02 09.42.48_1.jpg";
         JSONObject res = client.basicGeneral(image, options);
         String str = res.toString(2);
         Pattern words = Pattern.compile("\"words\":.*\n");
@@ -133,8 +134,8 @@ public class ImageText {
 		AipOcr client = new AipOcr(APP_ID, API_KEY, SECRET_KEY);
 		client.setConnectionTimeoutInMillis(2000);
 		client.setSocketTimeoutInMillis(60000);
-		//Òì²½½Ó¿Ú
-		//Ê¹ÓÃ·â×°µÄÍ¬²½ÂÖÑ¯½Ó¿Ú
+		//å¼‚æ­¥æ¥å£
+		//ä½¿ç”¨å°è£…çš„åŒæ­¥è½®è¯¢æ¥å£
 		JSONObject jsonres = client.tableRecognizeToJson("c:\\facts\\images\\table.jpg", 20000);
 		String result = ">>> Result 1 is: "+jsonres.toString(2);
 		JSONObject excelres = client.tableRecognizeToExcelUrl("c:\\facts\\images\\table.jpg", 20000);
@@ -183,10 +184,10 @@ public class ImageText {
 	}
 
 	public static String getImgStr(String imgFile) {
-		// ½«Í¼Æ¬ÎÄ¼ş×ª»¯Îª×Ö½ÚÊı×é×Ö·û´®£¬²¢¶ÔÆä½øĞĞBase64±àÂë´¦Àí
+		// å°†å›¾ç‰‡æ–‡ä»¶è½¬åŒ–ä¸ºå­—èŠ‚æ•°ç»„å­—ç¬¦ä¸²ï¼Œå¹¶å¯¹å…¶è¿›è¡ŒBase64ç¼–ç å¤„ç†
 		InputStream in = null;
 		byte[] data = null;
-		// ¶ÁÈ¡Í¼Æ¬×Ö½ÚÊı×é
+		// è¯»å–å›¾ç‰‡å­—èŠ‚æ•°ç»„
 		try {
 			in = new FileInputStream(imgFile);
 			data = new byte[in.available()];
@@ -200,18 +201,18 @@ public class ImageText {
 	
 
 	public static boolean generateImage(String imgStr, String imgFilePath) {
-		// Í¼ÏñÊı¾İÎª¿Õ
+		// å›¾åƒæ•°æ®ä¸ºç©º
 		if (imgStr == null)
 			return false;
 		try {
-			// Base64½âÂë
+			// Base64è§£ç 
 			byte[] b = Base64.decodeBase64(imgStr);
 			for (int i = 0; i < b.length; ++i) {
-				if (b[i] < 0) {// µ÷ÕûÒì³£Êı¾İ
+				if (b[i] < 0) {// è°ƒæ•´å¼‚å¸¸æ•°æ®
 					b[i] += 256;
 				}
 			}
-			// Éú³ÉjpegÍ¼Æ¬
+			// ç”Ÿæˆjpegå›¾ç‰‡
 			OutputStream out = new FileOutputStream(imgFilePath);
 			out.write(b);
 			out.flush();
