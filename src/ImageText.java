@@ -38,7 +38,7 @@ public class ImageText {
 		
 		test();
 		//ocr();
-		//哈哈哈
+		//哈哈哈，pull一下
 
 	}
 	
